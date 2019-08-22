@@ -4,31 +4,20 @@ description
 
 Handles the primary functions
 """
+import numpy as np
+from temp_test import temp_cpp
 
+class Temp():
 
-def canvas(with_attribution=True):
-    """
-    Placeholder function to show example docstring (NumPy format)
+    def __init__(self, temp_f):
+        self.temp_f = np.asarray(temp_f)
 
-    Replace this function and doc string for your own project
+    def convert_to_c(self):
+        return (self.temp_f - 32.) * (5. / 9.)
 
-    Parameters
-    ----------
-    with_attribution : bool, Optional, default: True
-        Set whether or not to display who the quote is from
-
-    Returns
-    -------
-    quote : str
-        Compiled string including quote and optional attribution
-    """
-
-    quote = "The code is but a canvas to our imagination."
-    if with_attribution:
-        quote += "\n\t- Adapted from Henry David Thoreau"
-    return quote
-
-
-if __name__ == "__main__":
-    # Do something if this file is invoked on its own
-    print(canvas())
+    def convert_to_k(self):
+        cel = self.convert_to_c()
+        return cel + 273.15
+    
+    def convert_to_c_cpp(self):
+        return temp_cpp.convert_matrix(np.atleast_1d(self.temp_f))
