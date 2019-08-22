@@ -19,5 +19,8 @@ class Temp():
         cel = self.convert_to_c()
         return cel + 273.15
     
-    def convert_to_c_cpp(self):
+    def convert_matrix_to_c_cpp(self):
         return temp_cpp.convert_matrix(np.atleast_1d(self.temp_f))
+
+    def convert_vector_to_c_cpp(self):
+    	return temp_cpp.convert_vector(self.temp_f)
