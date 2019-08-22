@@ -11,7 +11,7 @@ dependencies:
   - codecov
   - numpy
   - eigen
-  - pybind
+  - pybind11
 
     # Pip-only installs
   #- pip:
