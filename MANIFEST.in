@@ -1,0 +1,6 @@
+include LICENSE
+include MANIFEST.in
+include versioneer.py
+
+graft temp_test
+global-exclude *.py[cod] __pycache__ *.so
